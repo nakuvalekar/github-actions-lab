@@ -24,5 +24,20 @@ jobs:
       - name: Build
         run: dotnet build ./dotnet-sample --no-restore --configuration Release
 
+      - name: Publish self-contained EXE
+        run: |
+          dotnet publish ./dotnet-sample \
+            --configuration Release \
+            --runtime win-x64 \
+            --self-contained true \
+            --output ./output
+      # Common runtimes: win-x64, linux-x64, osx-x64
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dotnet-publish
+          path: ./output
+          
       - name: Run Tests (if any)
         run: echo "No tests yet!"
