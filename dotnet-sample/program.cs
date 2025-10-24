@@ -6,7 +6,7 @@ namespace GitHubActionsLab
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello from .NET GitHub Actions Workflow!");
+            Console.WriteLine("Hello from .NET GitHub Actions Workflow! And getting build file");
         }
     }
 }
